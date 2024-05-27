@@ -117,23 +117,6 @@ class MultinomialLogisticRegression:
         plt.show()
 
 
-X = df.drop('damage_grade', axis=1).values
-y = df['damage_grade'].values
-
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-
 mlr = MultinomialLogisticRegression(n_components=None, learning_rate=0.01, max_iter=1000)  # Use n_components=None to keep all components
 
 
-mlr.fit(X_train, y_train)
-
-
-y_pred = mlr.predict(X_test)
-
-
-mlr.evaluate(y_test, y_pred)
-
-
-mlr.plot_confusion_matrix(y_test, y_pred)
